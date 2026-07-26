@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>داشبورد اشتراک</title>
-    <!-- کتابخانه ساخت QR کد به صورت آنلاین -->
+    <!-- کتابخانه ساخت QR کد -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif; }
@@ -32,7 +32,6 @@
         .sub-btn { background: #10b981; color: #fff; padding: 10px 22px; border-radius: 12px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 12px rgba(16,185,129,0.3); transition: 0.2s; }
         .sub-btn:active { transform: scale(0.95); }
 
-        /* استایل بخش QR کد */
         .qrcode-card { background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; text-align: center; }
         .qrcode-title { font-weight: bold; font-size: 13px; color: #555; margin-bottom: 12px; }
         .qrcode-container { display: flex; justify-content: center; align-items: center; }
@@ -60,7 +59,7 @@
             <div class="status-badge">فعال</div>
             <div class="expire-box">
                 منقضی می‌شود در: 
-                <span>1 ماه و 20 روز</span>
+                <span id="daysRemaining">در حال محاسبه...</span>
             </div>
         </div>
         <div class="middle-section">
@@ -82,7 +81,7 @@
         </div>
         <div class="small-card">
             <span>تاریخ انقضا</span>
-            <strong>۱۴۰۵/۰۷/۰۱</strong>
+            <strong id="expireDateText">۱۴۰۵/۰6/20</strong>
         </div>
     </div>
 
@@ -129,6 +128,69 @@
 <script>
     // لینک اشتراک خود را دقیقاً به جای متن زیر درون کوتیشن قرار دهید
     const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
+
+    // تابع تبدیل تاریخ شمسی به میلادی برای محاسبات دقیق روزهای باقی‌مانده
+    function jalaliToGregorian(jm, jd, jy) {
+        var sal_a, gy, gm, gd, days;
+        jy += 1595;
+        days = -355668 + (365 * jy) + (parseInt(jy / 33) * 8) + parseInt(((jy % 33) + 3) / 4) + jd;
+        if (jm < 7) {
+            days += (jm - 1) * 31;
+        } else {
+            days += ((jm - 7) * 30) + 186;
+        }
+        gy = 400 * parseInt(days / 146097);
+        days %= 146097;
+        if (days > 36524) {
+            days--;
+            gy += 100 * parseInt(days / 36524);
+            days %= 36524;
+            if (days >= 365) days++;
+        }
+        gy += 4 * parseInt(days / 1461);
+        days %= 1461;
+        if (days > 365) {
+            gy += parseInt((days - 1) / 365);
+            days = (days - 1) % 365;
+        }
+        gd = days + 1;
+        sal_a = [0, 31, ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        for (gm = 0; gm < 13; gm++) {
+            v = sal_a[gm];
+            if (gd <= v) break;
+            gd -= v;
+        }
+        return new Date(gy, gm - 1, gd);
+    }
+
+    // تنظیم تاریخ انقضا به صورت شمسی (سال، ماه، روز)
+    // مثلاً اینجا روی تاریخ ۱۴۰۵/۰۷/۰۱ تنظیم شده است
+    const expiryYear = 1405;
+    const expiryMonth = 6;
+    const expiryDay = 20;
+
+    // نمایش تاریخ انقضا در باکس مربوطه به صورت متن
+    document.getElementById('expireDateText').innerText = expiryYear + '/' + (expiryMonth < 10 ? '0' + expiryMonth : expiryMonth) + '/' + (expiryDay < 10 ? '0' + expiryDay : expiryDay);
+
+    // محاسبه خودکار روزهای باقی‌مانده بر اساس تقویم شمسی
+    function updateJalaliCountdown() {
+        const expDate = jalaliToGregorian(expiryMonth, expiryDay, expiryYear);
+        const now = new Date();
+        const diffTime = expDate - now;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        const spanElement = document.getElementById('daysRemaining');
+        if (diffDays > 0) {
+            spanElement.innerText = diffDays + " روز دیگر";
+        } else if (diffDays === 0) {
+            spanElement.innerText = "امروز منقضی می‌شود";
+        } else {
+            spanElement.innerText = "منقضی شده است";
+            spanElement.style.color = "#ef4444";
+        }
+    }
+
+    updateJalaliCountdown();
 
     // ساخت خودکار QR کد بر اساس لینک اشتراک
     new QRCode(document.getElementById("qrcode"), {
