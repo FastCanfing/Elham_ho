@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد اشتراک - Subcription</title>
+    <title>داشبورد اشتراک</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif; }
@@ -29,9 +29,15 @@
         .circle-num { font-size: 13px; font-weight: bold; color: #111; display: block; }
         .circle-label { font-size: 9px; color: #777; display: block; }
 
-        /* کارت فرعی (اطلاعات تکمیلی) */
+        /* کارت فرعی حجم کل */
         .sub-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; font-size: 13px; color: #555; display: flex; justify-content: space-between; align-items: center; }
         .sub-card strong { color: #111; direction: ltr; }
+
+        /* بخش نمودار مصرف */
+        .chart-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
+        .chart-title { font-size: 13px; font-weight: bold; color: #444; margin-bottom: 10px; }
+        .chart-box { width: 100%; height: 90px; background: #f8fafc; border-radius: 10px; display: flex; align-items: flex-end; padding: 10px; position: relative; overflow: hidden; }
+        .chart-line { width: 100%; height: 40px; border-bottom: 2px solid #10b981; background: linear-gradient(180deg, rgba(16,185,129,0.2) 0%, rgba(255,255,255,0) 100%); position: relative; }
 
         /* بخش لینک اشتراک و QR کد */
         .sub-link-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
@@ -55,7 +61,6 @@
         .app-info { display: flex; align-items: center; gap: 8px; }
         .app-name { font-size: 12px; font-weight: bold; color: #333; }
         .badge-suggest { background: #e0f2fe; color: #0284c7; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: bold; }
-        .badge-system { background: #f1f5f9; color: #64748b; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: bold; }
         .dl-btn { background: #e2e8f0; color: #334155; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 11px; font-weight: bold; }
 
         /* بخش پشتیبانی */
@@ -73,7 +78,7 @@
     <div class="main-card">
         <div class="top-info">
             <div class="status-badge">● فعال</div>
-            <div class="expire-text">منقضی می‌شود در: <strong id="expireTimeText">1 ماه، 20 روز</strong></div>
+            <div class="expire-text">مدت زمان اشتراک: <strong>۲ ماه</strong></div>
         </div>
         <div class="middle-section">
             <div class="stats-list">
@@ -92,12 +97,14 @@
 
     <div class="sub-card">
         <span>حجم کل</span>
-        <strong id="totalExtraText">4.48 GB</strong>
+        <strong id="totalExtraText">10.00 GB</strong>
     </div>
 
-    <div class="sub-card">
-        <span>تاریخ انقضا</span>
-        <strong style="direction: ltr;">1405/06/24، 21:23</strong>
+    <div class="chart-card">
+        <div class="chart-title">📊 آمار مصرف</div>
+        <div class="chart-box">
+            <div class="chart-line"></div>
+        </div>
     </div>
 
     <div class="sub-link-card">
@@ -121,7 +128,6 @@
                 <div class="app-info">
                     <span class="app-name">Streisand</span>
                     <span class="badge-suggest">پیشنهادی</span>
-                    <span class="badge-system">سیستم شما</span>
                 </div>
                 <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
             </div>
@@ -133,9 +139,7 @@
         </div>
         <div class="accordion-content" id="androidApps">
             <div class="app-item">
-                <div class="app-info">
-                    <span class="app-name">v2rayNG</span>
-                </div>
+                <div class="app-info"><span class="app-name">v2rayNG</span></div>
                 <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
             </div>
         </div>
@@ -146,21 +150,8 @@
         </div>
         <div class="accordion-content" id="windowsApps">
             <div class="app-item">
-                <div class="app-info">
-                    <span class="app-name">v2rayN</span>
-                </div>
+                <div class="app-info"><span class="app-name">v2rayN</span></div>
                 <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
-            </div>
-        </div>
-        
-        <div class="accordion-header" onclick="toggleAccordion('macosApps')" style="margin-top: 5px;">
-            <span>🍎 macOS</span>
-            <span>▼</span>
-        </div>
-        <div class="accordion-content" id="macosApps">
-            <div class="app-item">
-                <div class="app-info"><span class="app-name">FoXray / V2rayU</span></div>
-                <a href="https://github.com" class="dl-btn" target="_blank">دانلود</a>
             </div>
         </div>
     </div>
@@ -177,9 +168,9 @@
 
 <script>
     // لینک اشتراک خود را اینجا قرار دهید
-    const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
+    const subLink ="https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
 
-    // تنظیمات مقادیر حجم (می‌توانید برای هر مشتری تغییر دهید)
+    // تنظیمات مقادیر حجم (هر زمان خواستید برای مشتری تغییر دهید)
     const totalGB = 10.0; 
     const usedGB = 4.48;   
 
@@ -192,7 +183,7 @@
     document.getElementById('usedText').innerText = usedGB.toFixed(2) + " GB";
     document.getElementById('remainingText').innerText = remainingGB.toFixed(2) + " GB";
     document.getElementById('percentText').innerText = percent + "%";
-    document.getElementById('totalExtraText').innerText = usedGB.toFixed(2) + " GB";
+    document.getElementById('totalExtraText').innerText = totalGB.toFixed(2) + " GB";
 
     // تنظیم گرافیک دایره‌ای درصد پیشرفت
     const degree = (percent / 100) * 360;
@@ -220,7 +211,7 @@
         }
     }
 
-    // کپی کردن لینک سابستریشن
+    // کپی کردن لینک
     function copySubLink() {
         navigator.clipboard.writeText(subLink).then(() => {
             const btn = document.getElementById('copyBtn');
