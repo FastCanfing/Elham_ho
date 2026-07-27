@@ -3,59 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد اشتراک</title>
+    <title>داشبورد اشتراک اختصاصی</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif; }
-        body { background-color: #f4f6f9; color: #333; padding: 16px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .wrapper { width: 100%; max-width: 480px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
+            color: #1e293b; 
+            padding: 24px 16px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        .wrapper { width: 100%; max-width: 440px; }
         
-        /* کارت‌های فرعی */
-        .sub-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; font-size: 13px; color: #555; display: flex; justify-content: space-between; align-items: center; }
-        .sub-card strong { color: #111; direction: ltr; }
+        /* استایل کارت‌های شیک و مدرن */
+        .card { 
+            background: #ffffff; 
+            border-radius: 20px; 
+            padding: 18px 20px; 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); 
+            margin-bottom: 14px; 
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.2s ease;
+        }
+
+        /* کارت مدت زمان اشتراک */
+        .sub-time-card { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-size: 14px; 
+            color: #475569; 
+            font-weight: 500;
+        }
+        .sub-time-card strong { 
+            color: #0f172a; 
+            direction: ltr; 
+            unicode-bidi: embed; 
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 8px;
+        }
 
         /* بخش لینک اشتراک و QR کد */
-        .sub-link-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
         .sub-header { display: flex; justify-content: space-between; align-items: center; }
-        .sub-title { font-weight: bold; font-size: 13px; color: #444; display: flex; align-items: center; gap: 6px; }
+        .sub-title { font-weight: 700; font-size: 14px; color: #1e293b; display: flex; align-items: center; gap: 8px; }
         .btn-group { display: flex; gap: 8px; }
-        .action-btn { background: #f1f5f9; border: none; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 12px; color: #334155; font-weight: bold; display: flex; align-items: center; gap: 5px; transition: 0.2s; }
-        .action-btn:hover { background: #e2e8f0; }
-        .action-btn.primary { background: #10b981; color: #fff; }
+        
+        .action-btn { 
+            background: #f1f5f9; 
+            border: none; 
+            padding: 9px 14px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            font-size: 13px; 
+            color: #334155; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            transition: all 0.2s ease; 
+        }
+        .action-btn:hover { background: #e2e8f0; transform: translateY(-1px); }
+        .action-btn.primary { background: #10b981; color: #fff; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
         .action-btn.primary:hover { background: #059669; }
 
-        .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
-        .qrcode-container img { border-radius: 8px; padding: 5px; background: #fff; border: 1px solid #eee; }
+        .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 18px; display: none; }
+        .qrcode-container img { border-radius: 12px; padding: 8px; background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
-        /* بخش اپلیکیشن‌ها (آکاردئونی) */
-        .apps-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
-        .accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 13px; font-weight: bold; color: #444; padding: 8px 0; border-bottom: 1px solid #f8fafc; }
-        .accordion-header:last-child { border-bottom: none; }
-        .accordion-content { display: none; margin-top: 10px; padding-top: 5px; }
-        .app-item { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 10px 14px; border-radius: 12px; margin-bottom: 8px; }
-        .app-info { display: flex; align-items: center; gap: 8px; }
-        .app-name { font-size: 12px; font-weight: bold; color: #333; }
-        .badge-suggest { background: #e0f2fe; color: #0284c7; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: bold; }
-        .dl-btn { background: #e2e8f0; color: #334155; padding: 6px 14px; border-radius: 8px; text-decoration: none; font-size: 11px; font-weight: bold; }
+        /* بخش اپلیکیشن‌ها (آکاردئونی مدرن) */
+        .accordion-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            cursor: pointer; 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #334155; 
+            padding: 6px 0; 
+            border-bottom: 1px solid #f1f5f9;
+            transition: color 0.2s;
+        }
+        .accordion-header:hover { color: #10b981; }
+        .accordion-header:last-of-type { border-bottom: none; }
+        .arrow-icon { font-size: 11px; color: #94a3b8; transition: transform 0.3s; }
+        
+        .accordion-content { display: none; margin-top: 12px; padding-top: 4px; }
+        .app-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: #f8fafc; 
+            padding: 12px 14px; 
+            border-radius: 14px; 
+            margin-bottom: 8px; 
+            border: 1px solid #e2e8f0;
+        }
+        .app-info { display: flex; align-items: center; gap: 10px; }
+        .app-name { font-size: 13px; font-weight: 700; color: #1e293b; }
+        .badge-suggest { background: #e0f2fe; color: #0284c7; font-size: 10px; padding: 3px 8px; border-radius: 6px; font-weight: 700; }
+        .dl-btn { 
+            background: #e2e8f0; 
+            color: #334155; 
+            padding: 7px 16px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 12px; 
+            font-weight: 600; 
+            transition: background 0.2s;
+        }
+        .dl-btn:hover { background: #cbd5e1; }
 
         /* بخش پشتیبانی */
-        .support-card { background: #ffffff; border-radius: 16px; padding: 14px 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .support-title { font-weight: bold; font-size: 13px; color: #555; }
-        .support-link { color: #0088cc; font-weight: bold; font-size: 13px; text-decoration: none; direction: ltr; background: #e0f2fe; padding: 6px 12px; border-radius: 10px; }
+        .support-card { display: flex; justify-content: space-between; align-items: center; }
+        .support-title { font-weight: 600; font-size: 13px; color: #64748b; }
+        .support-link { color: #0284c7; font-weight: 700; font-size: 13px; text-decoration: none; direction: ltr; background: #e0f2fe; padding: 6px 14px; border-radius: 10px; transition: background 0.2s; }
+        .support-link:hover { background: #bae6fd; }
 
-        /* باکس تشکر آخر */
-        .thank-you-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px dashed #10b981; border-radius: 16px; padding: 14px; text-align: center; color: #065f46; font-size: 13px; font-weight: bold; }
+        /* باکس تشکر آخر با گرادنت چشم‌نواز */
+        .thank-you-box { 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%); 
+            border-radius: 16px; 
+            padding: 16px; 
+            text-align: center; 
+            color: #ffffff; 
+            font-size: 13px; 
+            font-weight: 600; 
+            box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.3);
+        }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="sub-card">
+    <div class="card sub-time-card">
         <span>مدت زمان اشتراک</span>
-        <strong>2 ماه</strong>
+        <strong dir="rtl">۲ ماه</strong>
     </div>
 
-    <div class="sub-link-card">
+    <div class="card">
         <div class="sub-header">
             <span class="sub-title">🔗 لینک اشتراک (SUB)</span>
             <div class="btn-group">
@@ -66,10 +155,10 @@
         <div class="qrcode-container" id="qrcode"></div>
     </div>
 
-    <div class="apps-card">
+    <div class="card">
         <div class="accordion-header" onclick="toggleAccordion('iosApps')">
             <span>🍏 iOS (آیفون)</span>
-            <span>▼</span>
+            <span class="arrow-icon" id="arrow-iosApps">▼</span>
         </div>
         <div class="accordion-content" id="iosApps" style="display: block;">
             <div class="app-item">
@@ -81,9 +170,9 @@
             </div>
         </div>
 
-        <div class="accordion-header" onclick="toggleAccordion('androidApps')" style="margin-top: 5px;">
+        <div class="accordion-header" onclick="toggleAccordion('androidApps')" style="margin-top: 10px;">
             <span>🤖 اندروید</span>
-            <span>▼</span>
+            <span class="arrow-icon" id="arrow-androidApps">▼</span>
         </div>
         <div class="accordion-content" id="androidApps">
             <div class="app-item">
@@ -92,9 +181,9 @@
             </div>
         </div>
 
-        <div class="accordion-header" onclick="toggleAccordion('windowsApps')" style="margin-top: 5px;">
+        <div class="accordion-header" onclick="toggleAccordion('windowsApps')" style="margin-top: 10px;">
             <span>💻 ویندوز</span>
-            <span>▼</span>
+            <span class="arrow-icon" id="arrow-windowsApps">▼</span>
         </div>
         <div class="accordion-content" id="windowsApps">
             <div class="app-item">
@@ -104,7 +193,7 @@
         </div>
     </div>
 
-    <div class="support-card">
+    <div class="card support-card">
         <span class="support-title">پشتیبانی تلگرام</span>
         <a href="https://t.me/Turbo_Canfing" target="_blank" class="support-link">@Turbo_Canfing</a>
     </div>
@@ -116,7 +205,7 @@
 
 <script>
     // لینک اشتراک خود را اینجا قرار دهید
-    const subLink ="https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
+    const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
 
     // ساخت QR کد
     let qrGenerated = false;
@@ -129,9 +218,9 @@
             if (!qrGenerated) {
                 new QRCode(qrContainer, {
                     text: subLink,
-                    width: 150,
-                    height: 150,
-                    colorDark : "#000000",
+                    width: 140,
+                    height: 140,
+                    colorDark : "#0f172a",
                     colorLight : "#ffffff",
                     correctLevel : QRCode.CorrectLevel.H
                 });
@@ -156,7 +245,14 @@
     // باز و بسته کردن منوی برنامه‌ها
     function toggleAccordion(id) {
         const content = document.getElementById(id);
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        const arrow = document.getElementById('arrow-' + id);
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.display = 'block';
+            arrow.style.transform = 'rotate(180deg)';
+        }
     }
 </script>
 
