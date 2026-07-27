@@ -9,7 +9,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
         body { 
             background: #060913;
-            /* رنگ پس‌زمینه به صورت دینامیک از طریق جاوااسکریپت تغییر می‌کند */
             background-image: var(--dynamic-bg, radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%));
             color: #f8fafc; 
             padding: 30px 16px; 
@@ -17,7 +16,7 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            transition: background-image 0.5s ease;
+            transition: background-image 0.6s ease;
         }
         .wrapper { width: 100%; max-width: 420px; }
         .card { 
@@ -240,7 +239,9 @@
 </div>
 
 <script>
-    // لینک کانفینگ خود را دقیقاً بین این دو دابل‌کوتیشن قرار دهید:
+    // ==========================================
+    // لینک را اینجا کپی کنید (بین علامت‌های نقل‌قول زیر)
+    // ==========================================
     const subLink = "https://racocloud.com/sub/djMsMTA2MzEsMTc4NDMxMDgyNQ6aa23c3aa0";
 
     document.getElementById('subLinkInput').value = subLink;
@@ -298,23 +299,29 @@
         }
     }
 
-    // تغییر خودکار و تصادفی رنگ پس‌زمینه در هر بار ورود به صفحه
+    // تنوع بالای رنگ‌های پس‌زمینه
     window.onload = function() {
-        // لیست رنگ‌های پس‌زمینه (ترکیب‌های جذاب تیره و مدرن: آبی، سبز تیره، قرمز/صورتی تیره، نارنجی و بنفش)
         const bgList = [
-            "radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%)", // بنفش تیره
-            "radial-gradient(circle at 50% -10%, #064e3b 0%, #060913 100%)", // سبز تیره مدرن
-            "radial-gradient(circle at 50% -10%, #172554 0%, #060913 100%)", // آبی اقیانوسی تیره
-            "radial-gradient(circle at 50% -10%, #581c87 0%, #060913 100%)", // ارغوانی تیره
-            "radial-gradient(circle at 50% -10%, #831843 0%, #060913 100%)", // سرخابی/صورتی تیره
-            "radial-gradient(circle at 50% -10%, #7c2d12 0%, #060913 100%)"  // کهربایی/نارنجی تیره
+            "radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #064e3b 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #172554 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #581c87 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #831843 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #7c2d12 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #0f766e 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #312e81 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #881337 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #3b0764 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #14532d 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #1e3a8a 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #4a044e 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #134e4a 0%, #060913 100%)",
+            "radial-gradient(circle at 50% -10%, #431407 0%, #060913 100%)"
         ];
 
-        // انتخاب تصادفی یکی از رنگ‌ها
         const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
         document.body.style.setProperty('--dynamic-bg', randomBg);
 
-        // تشخیص هوشمند نوع سیستم‌عامل کاربر (کد قبلی)
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         let targetId = 'windowsApps';
 
