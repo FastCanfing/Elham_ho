@@ -10,20 +10,6 @@
         body { background-color: #f4f6f9; color: #333; padding: 16px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .wrapper { width: 100%; max-width: 480px; }
         
-        /* کارت اصلی حجم */
-        .main-card { background: #ffffff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 12px; }
-        .middle-section { display: flex; justify-content: space-between; align-items: center; }
-        .stats-list { display: flex; flex-direction: column; gap: 10px; }
-        .stat-row { font-size: 13px; color: #666; display: flex; gap: 15px; justify-content: space-between; width: 210px; }
-        .stat-row strong { color: #111; direction: ltr; }
-        
-        /* دایره درصد پیشرفت پویا */
-        .circle-progress { width: 75px; height: 75px; border-radius: 50%; background: conic-gradient(#10b981 0deg, #edf2f7 0deg); display: flex; align-items: center; justify-content: center; position: relative; }
-        .circle-progress::after { content: ""; width: 61px; height: 61px; background: #ffffff; border-radius: 50%; position: absolute; }
-        .circle-content { position: relative; z-index: 1; text-align: center; }
-        .circle-num { font-size: 13px; font-weight: bold; color: #111; display: block; }
-        .circle-label { font-size: 9px; color: #777; display: block; }
-
         /* کارت‌های فرعی */
         .sub-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; font-size: 13px; color: #555; display: flex; justify-content: space-between; align-items: center; }
         .sub-card strong { color: #111; direction: ltr; }
@@ -64,21 +50,6 @@
 <body>
 
 <div class="wrapper">
-    <div class="main-card">
-        <div class="middle-section">
-            <div class="stats-list">
-                <div class="stat-row"><span>حجم سرویس:</span> <strong id="totalText">10.00 GB</strong></div>
-                <div class="stat-row"><span>حجم باقی‌مانده:</span> <strong id="remainingText" style="color: #10b981;">5.52 GB</strong></div>
-            </div>
-            <div class="circle-progress" id="circleProgress">
-                <div class="circle-content">
-                    <span class="circle-num" id="percentText">45%</span>
-                    <span class="circle-label">مصرف شده</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="sub-card">
         <span>مدت زمان اشتراک</span>
         <strong>۲ ماه</strong>
@@ -146,23 +117,6 @@
 <script>
     // لینک اشتراک خود را اینجا قرار دهید
     const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
-
-    // تنظیمات مقادیر حجم (هر زمان خواستید برای مشتری تغییر دهید)
-    const totalGB = 10.0; 
-    const usedGB = 4.48;   
-
-    // محاسبات خودکار
-    const remainingGB = Math.max(0, totalGB - usedGB);
-    const percent = totalGB > 0 ? Math.min(100, Math.round((usedGB / totalGB) * 100)) : 0;
-
-    // اعمال مقادیر در صفحه
-    document.getElementById('totalText').innerText = totalGB.toFixed(2) + " GB";
-    document.getElementById('remainingText').innerText = remainingGB.toFixed(2) + " GB";
-    document.getElementById('percentText').innerText = percent + "%";
-
-    // تنظیم گرافیک دایره‌ای درصد پیشرفت
-    const degree = (percent / 100) * 360;
-    document.getElementById('circleProgress').style.background = `conic-gradient(#10b981 ${degree}deg, #edf2f7 0deg)`;
 
     // ساخت QR کد
     let qrGenerated = false;
