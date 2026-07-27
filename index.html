@@ -10,15 +10,10 @@
         body { background-color: #f4f6f9; color: #333; padding: 16px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .wrapper { width: 100%; max-width: 480px; }
         
-        /* کارت اصلی وضعیت */
+        /* کارت اصلی حجم */
         .main-card { background: #ffffff; border-radius: 20px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 12px; }
-        .top-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-        .status-badge { background: #e1fef0; color: #10b981; padding: 5px 14px; border-radius: 20px; font-weight: bold; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
-        .expire-text { font-size: 13px; color: #555; }
-        .expire-text strong { color: #111; }
-        
         .middle-section { display: flex; justify-content: space-between; align-items: center; }
-        .stats-list { display: flex; flex-direction: column; gap: 8px; }
+        .stats-list { display: flex; flex-direction: column; gap: 10px; }
         .stat-row { font-size: 13px; color: #666; display: flex; gap: 15px; justify-content: space-between; width: 210px; }
         .stat-row strong { color: #111; direction: ltr; }
         
@@ -29,15 +24,9 @@
         .circle-num { font-size: 13px; font-weight: bold; color: #111; display: block; }
         .circle-label { font-size: 9px; color: #777; display: block; }
 
-        /* کارت فرعی حجم کل */
+        /* کارت‌های فرعی */
         .sub-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; font-size: 13px; color: #555; display: flex; justify-content: space-between; align-items: center; }
         .sub-card strong { color: #111; direction: ltr; }
-
-        /* بخش نمودار مصرف */
-        .chart-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
-        .chart-title { font-size: 13px; font-weight: bold; color: #444; margin-bottom: 10px; }
-        .chart-box { width: 100%; height: 90px; background: #f8fafc; border-radius: 10px; display: flex; align-items: flex-end; padding: 10px; position: relative; overflow: hidden; }
-        .chart-line { width: 100%; height: 40px; border-bottom: 2px solid #10b981; background: linear-gradient(180deg, rgba(16,185,129,0.2) 0%, rgba(255,255,255,0) 100%); position: relative; }
 
         /* بخش لینک اشتراک و QR کد */
         .sub-link-card { background: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); margin-bottom: 12px; }
@@ -76,14 +65,9 @@
 
 <div class="wrapper">
     <div class="main-card">
-        <div class="top-info">
-            <div class="status-badge">● فعال</div>
-            <div class="expire-text">مدت زمان اشتراک: <strong>۲ ماه</strong></div>
-        </div>
         <div class="middle-section">
             <div class="stats-list">
                 <div class="stat-row"><span>حجم سرویس:</span> <strong id="totalText">10.00 GB</strong></div>
-                <div class="stat-row"><span>حجم مصرفی:</span> <strong id="usedText">4.48 GB</strong></div>
                 <div class="stat-row"><span>حجم باقی‌مانده:</span> <strong id="remainingText" style="color: #10b981;">5.52 GB</strong></div>
             </div>
             <div class="circle-progress" id="circleProgress">
@@ -100,11 +84,9 @@
         <strong id="totalExtraText">10.00 GB</strong>
     </div>
 
-    <div class="chart-card">
-        <div class="chart-title">📊 آمار مصرف</div>
-        <div class="chart-box">
-            <div class="chart-line"></div>
-        </div>
+    <div class="sub-card">
+        <span>مدت زمان اشتراک</span>
+        <strong>۲ ماه</strong>
     </div>
 
     <div class="sub-link-card">
@@ -168,11 +150,11 @@
 
 <script>
     // لینک اشتراک خود را اینجا قرار دهید
-    const subLink ="https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
+    const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
 
     // تنظیمات مقادیر حجم (هر زمان خواستید برای مشتری تغییر دهید)
     const totalGB = 10.0; 
-    const usedGB = 4.48;   
+    const usedGB =   
 
     // محاسبات خودکار
     const remainingGB = Math.max(0, totalGB - usedGB);
@@ -180,7 +162,6 @@
 
     // اعمال مقادیر در صفحه
     document.getElementById('totalText').innerText = totalGB.toFixed(2) + " GB";
-    document.getElementById('usedText').innerText = usedGB.toFixed(2) + " GB";
     document.getElementById('remainingText').innerText = remainingGB.toFixed(2) + " GB";
     document.getElementById('percentText').innerText = percent + "%";
     document.getElementById('totalExtraText').innerText = totalGB.toFixed(2) + " GB";
