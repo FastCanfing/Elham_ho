@@ -19,8 +19,6 @@
             min-height: 100vh; 
         }
         .wrapper { width: 100%; max-width: 420px; }
-        
-        /* کارت‌های شیشه‌ای لوکس (Glassmorphism) */
         .card { 
             background: rgba(255, 255, 255, 0.03); 
             backdrop-filter: blur(20px);
@@ -30,10 +28,7 @@
             padding: 20px 22px; 
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
             margin-bottom: 14px; 
-            transition: all 0.3s ease;
         }
-
-        /* مدت زمان اشتراک */
         .sub-time-card { 
             display: flex; 
             justify-content: space-between; 
@@ -54,16 +49,14 @@
             gap: 6px;
             align-items: center;
         }
-
-        /* بخش لینک اشتراک و QR کد */
-        .sub-header { display: flex; justify-content: space-between; align-items: center; }
+        .sub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .sub-title { font-weight: 700; font-size: 14px; color: #f8fafc; display: flex; align-items: center; gap: 8px; }
         .btn-group { display: flex; gap: 8px; }
         
         .action-btn { 
             background: rgba(255, 255, 255, 0.06); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 9px 16px; 
+            padding: 8px 14px; 
             border-radius: 12px; 
             cursor: pointer; 
             font-size: 13px; 
@@ -74,14 +67,27 @@
             gap: 6px; 
             transition: all 0.2s ease; 
         }
-        .action-btn:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
-        .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); }
-        .action-btn.primary:hover { opacity: 0.9; }
+        .action-btn:hover { background: rgba(255, 255, 255, 0.12); }
+        .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; }
 
-        .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 20px; display: none; }
+        /* باکس نمایش لینک به صورت اینپوت قابل انتخاب */
+        .link-box-input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px 14px;
+            color: #38bdf8;
+            font-size: 12px;
+            direction: ltr;
+            text-align: left;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
         .qrcode-container img { border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 
-        /* بخش اپلیکیشن‌ها (آکاردئونی مدرن) */
         .accordion-header { 
             display: flex; 
             justify-content: space-between; 
@@ -92,13 +98,11 @@
             color: #cbd5e1; 
             padding: 10px 0; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            transition: color 0.2s;
         }
-        .accordion-header:hover { color: #c084fc; }
         .accordion-header:last-of-type { border-bottom: none; }
         .arrow-icon { font-size: 11px; color: #64748b; transition: transform 0.3s ease; }
         
-        .accordion-content { display: none; margin-top: 12px; padding-top: 4px; }
+        .accordion-content { display: none; margin-top: 12px; }
         .app-item { 
             display: flex; 
             justify-content: space-between; 
@@ -111,7 +115,7 @@
         }
         .app-info { display: flex; align-items: center; gap: 10px; }
         .app-name { font-size: 13px; font-weight: 700; color: #f8fafc; }
-        .badge-suggest { background: rgba(56, 189, 248, 0.12); color: #38bdf8; font-size: 10px; padding: 4px 8px; border-radius: 8px; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.25); }
+        .badge-suggest { background: rgba(56, 189, 248, 0.12); color: #38bdf8; font-size: 10px; padding: 4px 8px; border-radius: 8px; font-weight: 700; }
         .dl-btn { 
             background: rgba(255, 255, 255, 0.06); 
             color: #e2e8f0; 
@@ -120,18 +124,13 @@
             text-decoration: none; 
             font-size: 12px; 
             font-weight: 600; 
-            transition: all 0.2s;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .dl-btn:hover { background: rgba(255, 255, 255, 0.15); color: #fff; }
 
-        /* بخش پشتیبانی */
         .support-card { display: flex; justify-content: space-between; align-items: center; }
         .support-title { font-weight: 600; font-size: 13px; color: #94a3b8; }
-        .support-link { color: #38bdf8; font-weight: 700; font-size: 13px; text-decoration: none; direction: ltr; background: rgba(56, 189, 248, 0.08); padding: 7px 16px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2); transition: all 0.2s; }
-        .support-link:hover { background: rgba(56, 189, 248, 0.15); transform: translateY(-1px); }
+        .support-link { color: #38bdf8; font-weight: 700; font-size: 13px; text-decoration: none; direction: ltr; background: rgba(56, 189, 248, 0.08); padding: 7px 16px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2); }
 
-        /* باکس تشکر آخر با گرادنت خیره‌کننده */
         .thank-you-box { 
             background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
             border-radius: 20px; 
@@ -141,15 +140,12 @@
             font-size: 13px; 
             font-weight: 600; 
             box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            letter-spacing: 0.3px;
         }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <!-- مدت زمان اشتراک -->
     <div class="card sub-time-card">
         <span>مدت زمان اشتراک</span>
         <div class="badge-time">
@@ -158,7 +154,6 @@
         </div>
     </div>
 
-    <!-- لینک اشتراک و QR کد -->
     <div class="card">
         <div class="sub-header">
             <span class="sub-title">🔗 لینک اشتراک (SUB)</span>
@@ -167,10 +162,11 @@
                 <button class="action-btn primary" id="copyBtn" onclick="copySubLink()">کپی لینک</button>
             </div>
         </div>
+        <!-- باکس اینپوت برای اینکه کاربر بتواند به راحتی دستی هم انتخاب و کپی کند -->
+        <input type="text" id="subLinkInput" class="link-box-input" readonly>
         <div class="qrcode-container" id="qrcode"></div>
     </div>
 
-    <!-- اپلیکیشن‌های پیشنهادی -->
     <div class="card">
         <div class="accordion-header" onclick="toggleAccordion('iosApps')">
             <span>🍏 iOS (آیفون)</span>
@@ -209,23 +205,23 @@
         </div>
     </div>
 
-    <!-- پشتیبانی تلگرام -->
     <div class="card support-card">
         <span class="support-title">پشتیبانی تلگرام</span>
         <a href="https://t.me/Turbo_Canfing" target="_blank" class="support-link">@Turbo_Canfing</a>
     </div>
 
-    <!-- باکس تشکر -->
     <div class="thank-you-box">
         🙏 بابت خرید و اعتماد شما متشکرم
     </div>
 </div>
 
 <script>
-    // حتماً لینک واقعی سابستریشن خود را دقیقاً بین دابل‌کوتیشن‌ها جایگزین کنید
+    // لینک اشتراک خود را دقیقاً بین این دو دابل‌کوتیشن قرار دهید
     const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
 
-    // ساخت QR کد
+    // قرار دادن لینک در باکس اینپوت به صورت خودکار
+    document.getElementById('subLinkInput').value = subLink;
+
     let qrGenerated = false;
     function toggleQR() {
         const qrContainer = document.getElementById('qrcode');
@@ -247,47 +243,25 @@
         }
     }
 
-    // کپی کردن لینک با روش مدرن و سازگار با تمام مرورگرها و گوشی‌ها
     function copySubLink() {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(subLink).then(() => {
-                showCopySuccess();
-            }).catch(() => {
-                fallbackCopy();
-            });
-        } else {
-            fallbackCopy();
-        }
-    }
-
-    function fallbackCopy() {
-        const textarea = document.createElement("textarea");
-        textarea.value = subLink;
-        textarea.style.position = "fixed";
-        document.body.appendChild(textarea);
-        textarea.focus();
-        textarea.select();
+        const inputElement = document.getElementById('subLinkInput');
+        inputElement.select();
+        inputElement.setSelectionRange(0, 99999); // برای موبایل
+        
         try {
             document.execCommand('copy');
-            showCopySuccess();
+            const btn = document.getElementById('copyBtn');
+            btn.innerText = "کپی شد! ✓";
+            btn.style.background = "#059669";
+            setTimeout(() => {
+                btn.innerText = "کپی لینک";
+                btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
+            }, 2000);
         } catch (err) {
-            alert("کپی نشد، لطفاً لینک را دستی کپی کنید.");
+            alert("لطفاً لینک را به صورت دستی انتخاب و کپی کنید.");
         }
-        document.body.removeChild(textarea);
     }
 
-    function showCopySuccess() {
-        const btn = document.getElementById('copyBtn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = "کپی شد! ✓";
-        btn.style.background = "#059669";
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
-        }, 2000);
-    }
-
-    // باز و بسته کردن منوی برنامه‌ها
     function toggleAccordion(id) {
         const content = document.getElementById(id);
         const arrow = document.getElementById('arrow-' + id);
