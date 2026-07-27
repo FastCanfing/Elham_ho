@@ -80,6 +80,7 @@
         .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
         .qrcode-container img { border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 
+        .os-section { margin-bottom: 6px; }
         .accordion-header { 
             display: flex; 
             justify-content: space-between; 
@@ -88,13 +89,21 @@
             font-size: 14px; 
             font-weight: 600; 
             color: #cbd5e1; 
-            padding: 10px 0; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 14px; 
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
         }
-        .accordion-header:last-of-type { border-bottom: none; }
+        .accordion-header.active-os { 
+            background: rgba(99, 102, 241, 0.1); 
+            border-color: rgba(99, 102, 241, 0.3);
+            color: #f8fafc;
+        }
         .arrow-icon { font-size: 11px; color: #64748b; transition: transform 0.3s ease; }
         
-        .accordion-content { display: none; margin-top: 12px; }
+        .accordion-content { display: none; margin-top: 6px; margin-bottom: 10px; padding: 0 4px; }
         .app-item { 
             display: flex; 
             justify-content: space-between; 
@@ -156,6 +165,7 @@
         </div>
     </div>
 
+    <!-- لینک اشتراک -->
     <div class="card">
         <div class="sub-header">
             <span class="sub-title">🔗 لینک اشتراک (SUB)</span>
@@ -168,44 +178,55 @@
         <div class="qrcode-container" id="qrcode"></div>
     </div>
 
+    <!-- بخش برنامه‌ها با تشخیص خودکار نوع دستگاه -->
     <div class="card">
-        <div class="accordion-header" onclick="toggleAccordion('iosApps')">
-            <span>🍏 iOS (آیفون)</span>
-            <span class="arrow-icon" id="arrow-iosApps">▼</span>
-        </div>
-        <div class="accordion-content" id="iosApps" style="display: block;">
-            <div class="app-item">
-                <div class="app-info">
-                    <span class="app-name">Streisand</span>
-                    <span class="badge-suggest">پیشنهادی</span>
+        <!-- iOS -->
+        <div class="os-section">
+            <div class="accordion-header" id="header-iosApps" onclick="toggleAccordion('iosApps')">
+                <span>🍏 iOS (آیفون)</span>
+                <span class="arrow-icon" id="arrow-iosApps">▼</span>
+            </div>
+            <div class="accordion-content" id="iosApps">
+                <div class="app-item">
+                    <div class="app-info">
+                        <span class="app-name">Streisand</span>
+                        <span class="badge-suggest">پیشنهادی</span>
+                    </div>
+                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
                 </div>
-                <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
             </div>
         </div>
 
-        <div class="accordion-header" onclick="toggleAccordion('androidApps')" style="margin-top: 6px;">
-            <span>🤖 اندروید</span>
-            <span class="arrow-icon" id="arrow-androidApps">▼</span>
-        </div>
-        <div class="accordion-content" id="androidApps">
-            <div class="app-item">
-                <div class="app-info"><span class="app-name">v2rayNG</span></div>
-                <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
+        <!-- اندروید -->
+        <div class="os-section">
+            <div class="accordion-header" id="header-androidApps" onclick="toggleAccordion('androidApps')">
+                <span>🤖 اندروید</span>
+                <span class="arrow-icon" id="arrow-androidApps">▼</span>
+            </div>
+            <div class="accordion-content" id="androidApps">
+                <div class="app-item">
+                    <div class="app-info"><span class="app-name">v2rayNG</span></div>
+                    <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
+                </div>
             </div>
         </div>
 
-        <div class="accordion-header" onclick="toggleAccordion('windowsApps')" style="margin-top: 6px;">
-            <span>💻 ویندوز</span>
-            <span class="arrow-icon" id="arrow-windowsApps">▼</span>
-        </div>
-        <div class="accordion-content" id="windowsApps">
-            <div class="app-item">
-                <div class="app-info"><span class="app-name">v2rayN</span></div>
-                <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
+        <!-- ویندوز -->
+        <div class="os-section">
+            <div class="accordion-header" id="header-windowsApps" onclick="toggleAccordion('windowsApps')">
+                <span>💻 ویندوز</span>
+                <span class="arrow-icon" id="arrow-windowsApps">▼</span>
+            </div>
+            <div class="accordion-content" id="windowsApps">
+                <div class="app-item">
+                    <div class="app-info"><span class="app-name">v2rayN</span></div>
+                    <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- پشتیبانی -->
     <div class="card support-card">
         <span class="support-title">پشتیبانی تلگرام</span>
         <a href="https://t.me/Turbo_Canfing" target="_blank" class="support-link">@Turbo_Canfing</a>
@@ -254,7 +275,7 @@
             btn.innerText = "کپی شد! ✓";
             btn.style.background = "#059669";
             setTimeout(() => {
-                btn.innerText = "کپی لینک";
+                btn.innerText = "Kپی لینک";
                 btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
             }, 2000);
         } catch (err) {
@@ -265,6 +286,7 @@
     function toggleAccordion(id) {
         const content = document.getElementById(id);
         const arrow = document.getElementById('arrow-' + id);
+        const header = document.getElementById('header-' + id);
         if (content.style.display === 'block') {
             content.style.display = 'none';
             arrow.style.transform = 'rotate(0deg)';
@@ -273,6 +295,31 @@
             arrow.style.transform = 'rotate(180deg)';
         }
     }
+
+    // تشخیص هوشمند نوع سیستم‌عامل کاربر
+    window.onload = function() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        let targetId = 'windowsApps'; // پیش‌فرض ویندوز
+
+        if (/android/i.test(ua)) {
+            targetId = 'androidApps';
+        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+            targetId = 'iosApps';
+        } else if (/Win/i.test(navigator.platform)) {
+            targetId = 'windowsApps';
+        }
+
+        // باز کردن خودکار بخش مربوط به دستگاه کاربر
+        const content = document.getElementById(targetId);
+        const arrow = document.getElementById('arrow-' + targetId);
+        const header = document.getElementById('header-' + targetId);
+        
+        if (content && header && arrow) {
+            content.style.display = 'block';
+            arrow.style.transform = 'rotate(180deg)';
+            header.classList.add('active-os');
+        }
+    };
 </script>
 
 </body>
