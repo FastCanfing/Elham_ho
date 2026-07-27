@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>داشبورد اشتراک اختصاصی</title>
-    <!-- کتابخانه ساخت QR کد -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
         body { 
             background: #060913;
             background-image: radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%);
@@ -65,12 +64,9 @@
             display: flex; 
             align-items: center; 
             gap: 6px; 
-            transition: all 0.2s ease; 
         }
-        .action-btn:hover { background: rgba(255, 255, 255, 0.12); }
         .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; }
 
-        /* باکس نمایش لینک به صورت اینپوت قابل انتخاب */
         .link-box-input {
             width: 100%;
             background: rgba(15, 23, 42, 0.7);
@@ -82,7 +78,6 @@
             direction: ltr;
             text-align: left;
             outline: none;
-            margin-bottom: 10px;
         }
 
         .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
@@ -162,8 +157,7 @@
                 <button class="action-btn primary" id="copyBtn" onclick="copySubLink()">کپی لینک</button>
             </div>
         </div>
-        <!-- باکس اینپوت برای اینکه کاربر بتواند به راحتی دستی هم انتخاب و کپی کند -->
-        <input type="text" id="subLinkInput" class="link-box-input" readonly>
+        <input type="text" id="subLinkInput" class="link-box-input" readonly onclick="this.select()">
         <div class="qrcode-container" id="qrcode"></div>
     </div>
 
@@ -216,10 +210,9 @@
 </div>
 
 <script>
-    // لینک اشتراک خود را دقیقاً بین این دو دابل‌کوتیشن قرار دهید
+    // لینک کانفینگ خودتان را دقیقاً بین این دو تا علامت نقل‌قول (" ") در خط زیر پیست کنید:
     const subLink = "https://raw.githubusercontent.com/FastCanfing/Elham_ho/refs/heads/main/sub.txt";
 
-    // قرار دادن لینک در باکس اینپوت به صورت خودکار
     document.getElementById('subLinkInput').value = subLink;
 
     let qrGenerated = false;
@@ -246,7 +239,7 @@
     function copySubLink() {
         const inputElement = document.getElementById('subLinkInput');
         inputElement.select();
-        inputElement.setSelectionRange(0, 99999); // برای موبایل
+        inputElement.setSelectionRange(0, 99999);
         
         try {
             document.execCommand('copy');
@@ -258,7 +251,7 @@
                 btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
             }, 2000);
         } catch (err) {
-            alert("لطفاً لینک را به صورت دستی انتخاب و کپی کنید.");
+            prompt("لینک اشتراک شما:", subLink);
         }
     }
 
