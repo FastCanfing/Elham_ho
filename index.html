@@ -8,42 +8,42 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
         body { 
-            background: #060913;
-            background-image: var(--dynamic-bg, radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%));
-            color: #f8fafc; 
-            padding: 30px 16px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            transition: background-image 0.6s ease;
+           background: #060913;
+           background-image: var(--dynamic-bg, radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%));
+           color: #f8fafc; 
+           padding: 30px 16px; 
+           display: flex; 
+           justify-content: center; 
+           align-items: center; 
+           min-height: 100vh; 
+           transition: background-image 0.6s ease;
         }
         .wrapper { width: 100%; max-width: 420px; }
         
         .brand-title {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 800;
-            color: #f8fafc;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+           text-align: center;
+           font-size: 16px;
+           font-weight: 800;
+           color: #f8fafc;
+           margin-bottom: 12px;
+           letter-spacing: 0.5px;
+           text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-
+ 
         .card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px; 
-            padding: 20px 22px; 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
-            margin-bottom: 14px; 
+           background: rgba(255, 255, 255, 0.03); 
+           backdrop-filter: blur(20px);
+           -webkit-backdrop-filter: blur(20px);
+           border: 1px solid rgba(255, 255, 255, 0.08);
+           border-radius: 24px; 
+           padding: 20px 22px; 
+           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+           margin-bottom: 14px; 
         }
         .sub-time-card { 
             font-size: 13px; 
             color: #94a3b8; 
-            font-weight: 500;
+           font-weight: 500;
         }
         .badge-time { 
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.1));
@@ -74,26 +74,26 @@
             align-items: center; 
             gap: 6px; 
         }
-        .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; }
-
-        .link-box-input {
+       .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; }
+ 
+       .link-box-input {
             width: 100%;
-            background: rgba(15, 23, 42, 0.7);
+           background: rgba(15, 23, 42, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+           border-radius: 12px;
             padding: 10px 14px;
             color: #38bdf8;
             font-size: 12px;
             direction: ltr;
-            text-align: left;
+           text-align: left;
             outline: none;
         }
-
-        .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
-        .qrcode-container img { border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-
+ 
+       .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
+       .qrcode-container img { border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+ 
         .os-section { margin-bottom: 6px; }
-        .accordion-header { 
+       .accordion-header { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -102,28 +102,28 @@
             font-weight: 600; 
             color: #cbd5e1; 
             padding: 12px 14px; 
-            background: rgba(255, 255, 255, 0.02);
+           background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            margin-bottom: 8px;
-            transition: all 0.2s ease;
+           border-radius: 14px;
+           margin-bottom: 8px;
+           transition: all 0.2s ease;
         }
-        .accordion-header.active-os { 
+       .accordion-header.active-os { 
             background: rgba(99, 102, 241, 0.1); 
-            border-color: rgba(99, 102, 241, 0.3);
+           border-color: rgba(99, 102, 241, 0.3);
             color: #f8fafc;
         }
         .arrow-icon { font-size: 11px; color: #64748b; transition: transform 0.3s ease; }
         
-        .accordion-content { display: none; margin-top: 6px; margin-bottom: 10px; padding: 0 4px; }
+       .accordion-content { display: none; margin-top: 6px; margin-bottom: 10px; padding: 0 4px; }
         .app-item { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(15, 23, 42, 0.6); 
+           background: rgba(15, 23, 42, 0.6); 
             padding: 12px 16px; 
-            border-radius: 14px; 
-            margin-bottom: 8px; 
+           border-radius: 14px; 
+           margin-bottom: 8px; 
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .app-info { display: flex; align-items: center; gap: 10px; }
@@ -133,142 +133,136 @@
             background: rgba(255, 255, 255, 0.06); 
             color: #e2e8f0; 
             padding: 7px 16px; 
-            border-radius: 10px; 
-            text-decoration: none; 
+           border-radius: 10px; 
+           text-decoration: none; 
             font-size: 12px; 
-            font-weight: 600; 
+           font-weight: 600; 
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-
+ 
         .support-card { display: flex; justify-content: space-between; align-items: center; }
         .support-title { font-weight: 600; font-size: 13px; color: #94a3b8; }
         .support-link { color: #38bdf8; font-weight: 700; font-size: 13px; text-decoration: none; direction: ltr; background: rgba(56, 189, 248, 0.08); padding: 7px 16px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2); }
-
+ 
         .thank-you-box { 
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
-            border-radius: 20px; 
+           background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
+           border-radius: 20px; 
             padding: 18px; 
-            text-align: center; 
+           text-align: center; 
             color: #ffffff; 
             font-size: 13px; 
-            font-weight: 600; 
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+           font-weight: 600; 
+           box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
         }
     </style>
 </head>
 <body>
-
+ 
 <div class="wrapper">
-    <!-- ========================================== -->
-    <!-- اسم را اینجا وارد کنید (بین علامت‌های نقل‌قول زیر) -->
-    <!-- ========================================== -->
-    <div class="brand-title">Elham_ho</div>
-
+    <div class="brand-title">ٍElham_ho</div>
+ 
     <!-- بخش مدت زمان و حجم سرویس -->
     <div class="card sub-time-card" style="display: flex; gap: 10px;">
         <div style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
-            <span>مدت زمان</span>
+           <span>مدت زمان</span>
             <div class="badge-time">
-                <span>2</span>
-                <span>ماه</span>
+               <span>2</span>
+               <span>ماه</span>
             </div>
         </div>
         <div style="flex: 1; display: flex; justify-content: space-between; align-items: center; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 10px;">
-            <span>حجم سرویس</span>
+           <span>حجم سرویس</span>
             <div class="badge-time" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.1)); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
-                <span>10</span>
-                <span>گیگ</span>
+               <span>10</span>
+               <span>گیگ</span>
             </div>
         </div>
     </div>
-
+ 
     <!-- لینک اشتراک -->
     <div class="card">
         <div class="sub-header">
             <span class="sub-title">🔗 لینک اشتراک (SUB)</span>
             <div class="btn-group">
-                <button class="action-btn" onclick="toggleQR()">🔲 QR</button>
-                <button class="action-btn primary" id="copyBtn" onclick="copySubLink()">کپی لینک</button>
+               <button class="action-btn" onclick="toggleQR()">🔲 QR</button>
+               <button class="action-btn primary" id="copyBtn" onclick="copySubLink()">کپی لینک</button>
             </div>
         </div>
         <input type="text" id="subLinkInput" class="link-box-input" readonly onclick="this.select()">
         <div class="qrcode-container" id="qrcode"></div>
     </div>
-
+ 
     <!-- بخش برنامه‌ها با تشخیص خودکار نوع دستگاه -->
     <div class="card">
         <!-- iOS -->
         <div class="os-section">
             <div class="accordion-header" id="header-iosApps" onclick="toggleAccordion('iosApps')">
-                <span>🍏 iOS (آیفون)</span>
-                <span class="arrow-icon" id="arrow-iosApps">▼</span>
+               <span>🍏 iOS (آیفون)</span>
+               <span class="arrow-icon" id="arrow-iosApps">▼</span>
             </div>
             <div class="accordion-content" id="iosApps">
-                <div class="app-item">
-                    <div class="app-info">
-                        <span class="app-name">Streisand</span>
-                        <span class="badge-suggest">پیشنهادی</span>
-                    </div>
-                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
-                </div>
+               <div class="app-item">
+                   <div class="app-info">
+                       <span class="app-name">Streisand</span>
+                       <span class="badge-suggest">پیشنهادی</span>
+                   </div>
+                   <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
+               </div>
             </div>
         </div>
-
+ 
         <!-- اندروید -->
         <div class="os-section">
             <div class="accordion-header" id="header-androidApps" onclick="toggleAccordion('androidApps')">
-                <span>🤖 اندروید</span>
-                <span class="arrow-icon" id="arrow-androidApps">▼</span>
+               <span>🤖 اندروید</span>
+               <span class="arrow-icon" id="arrow-androidApps">▼</span>
             </div>
             <div class="accordion-content" id="androidApps">
-                <div class="app-item">
-                    <div class="app-info"><span class="app-name">v2rayNG</span></div>
-                    <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
-                </div>
+               <div class="app-item">
+                   <div class="app-info"><span class="app-name">v2rayNG</span></div>
+                   <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
+               </div>
             </div>
         </div>
-
+ 
         <!-- ویندوز -->
         <div class="os-section">
             <div class="accordion-header" id="header-windowsApps" onclick="toggleAccordion('windowsApps')">
-                <span>💻 ویندوز</span>
-                <span class="arrow-icon" id="arrow-windowsApps">▼</span>
+               <span>💻 ویندوز</span>
+               <span class="arrow-icon" id="arrow-windowsApps">▼</span>
             </div>
             <div class="accordion-content" id="windowsApps">
-                <div class="app-item">
-                    <div class="app-info"><span class="app-name">v2rayN</span></div>
-                    <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
-                </div>
+               <div class="app-item">
+                   <div class="app-info"><span class="app-name">v2rayN</span></div>
+                   <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
+               </div>
             </div>
         </div>
     </div>
-
+ 
     <!-- پشتیبانی -->
     <div class="card support-card">
         <span class="support-title">پشتیبانی تلگرام</span>
         <a href="https://t.me/Turbo_Canfing" target="_blank" class="support-link">@Turbo_Canfing</a>
     </div>
-
+ 
     <div class="thank-you-box">
-        🙏 بابت خرید و اعتماد شما متشکرم
+        🙏بابت خرید و اعتماد شما متشکرم
     </div>
 </div>
-
+ 
 <script>
-    // ==========================================
-    // لینک را اینجا کپی کنید (بین علامت‌های نقل‌قول زیر)
-    // ==========================================
     const subLink = "https://racocloud.com/sub/djMsMTA2MzEsMTc4NDMxMDgyNQ6aa23c3aa0";
-
-    document.getElementById('subLinkInput').value = subLink;
-
+ 
+   document.getElementById('subLinkInput').value = subLink;
+ 
     let qrGenerated = false;
     function toggleQR() {
         const qrContainer = document.getElementById('qrcode');
         if (qrContainer.style.display === 'flex') {
-            qrContainer.style.display = 'none';
+           qrContainer.style.display = 'none';
         } else {
-            qrContainer.style.display = 'flex';
+           qrContainer.style.display = 'flex';
             if (!qrGenerated) {
                 new QRCode(qrContainer, {
                     text: subLink,
@@ -278,73 +272,73 @@
                     colorLight : "#ffffff",
                     correctLevel : QRCode.CorrectLevel.M
                 });
-                qrGenerated = true;
+               qrGenerated = true;
             }
         }
     }
-
+ 
     function copySubLink() {
         const inputElement = document.getElementById('subLinkInput');
-        inputElement.select();
-        inputElement.setSelectionRange(0, 99999);
+       inputElement.select();
+       inputElement.setSelectionRange(0, 99999);
         
         try {
-            document.execCommand('copy');
+           document.execCommand('copy');
             const btn = document.getElementById('copyBtn');
-            btn.innerText = "کپی شد! ✓";
-            btn.style.background = "#059669";
-            setTimeout(() => {
-                btn.innerText = "کپی لینک";
-                btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
+           btn.innerText = "کپی شد! ✓";
+           btn.style.background = "#059669";
+           setTimeout(() => {
+               btn.innerText = "کپی لینک";
+               btn.style.background = "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)";
             }, 2000);
         } catch (err) {
-            prompt("لینک اشتراک شما:", subLink);
+           prompt("لینک اشتراک شما:", subLink);
         }
     }
-
+ 
     function toggleAccordion(id) {
         const content = document.getElementById(id);
         const arrow = document.getElementById('arrow-' + id);
         const header = document.getElementById('header-' + id);
         if (content.style.display === 'block') {
-            content.style.display = 'none';
-            arrow.style.transform = 'rotate(0deg)';
+           content.style.display = 'none';
+           arrow.style.transform = 'rotate(0deg)';
         } else {
-            content.style.display = 'block';
-            arrow.style.transform = 'rotate(180deg)';
+           content.style.display = 'block';
+           arrow.style.transform = 'rotate(180deg)';
         }
     }
-
+ 
     window.onload = function() {
         const bgList = [
-            { bg: "#0d1b2a", c1: "rgba(56, 189, 248, 0.35)", c2: "rgba(129, 140, 248, 0.35)", c3: "rgba(52, 211, 153, 0.3)" },
-        { bg: "#1f1d2b", c1: "rgba(244, 63, 94, 0.35)", c2: "rgba(236, 72, 153, 0.35)", c3: "rgba(168, 85, 247, 0.35)" },
-        { bg: "#111827", c1: "rgba(251, 191, 36, 0.35)", c2: "rgba(249, 115, 22, 0.35)", c3: "rgba(244, 63, 94, 0.3)" },
-        { bg: "#06202a", c1: "rgba(45, 212, 191, 0.35)", c2: "rgba(56, 189, 248, 0.35)", c3: "rgba(147, 197, 253, 0.35)" },
-        { bg: "#18122b", c1: "rgba(192, 132, 252, 0.35)", c2: "rgba(244, 114, 182, 0.35)", c3: "rgba(129, 140, 248, 0.35)" },
-        { bg: "#052e16", c1: "rgba(74, 222, 128, 0.35)", c2: "rgba(52, 211, 153, 0.35)", c3: "rgba(250, 204, 21, 0.35)" },
-        { bg: "#2a0808", c1: "rgba(248, 113, 113, 0.35)", c2: "rgba(251, 146, 60, 0.35)", c3: "rgba(250, 204, 21, 0.35)" },
-        { bg: "#170f26", c1: "rgba(168, 85, 247, 0.35)", c2: "rgba(99, 102, 241, 0.35)", c3: "rgba(236, 72, 153, 0.35)" },
-        { bg: "#042f2e", c1: "rgba(45, 212, 191, 0.35)", c2: "rgba(74, 222, 128, 0.35)", c3: "rgba(56, 189, 248, 0.35)" },
-        { bg: "#291b07", c1: "rgba(251, 191, 36, 0.35)", c2: "rgba(251, 146, 60, 0.35)", c3: "rgba(234, 179, 8, 0.35)" },
-        { bg: "#20062a", c1: "rgba(217, 70, 239, 0.35)", c2: "rgba(168, 85, 247, 0.35)", c3: "rgba(244, 114, 182, 0.35)" },
-        { bg: "#041c2c", c1: "rgba(56, 189, 248, 0.4)", c2: "rgba(34, 211, 238, 0.35)", c3: "rgba(129, 140, 248, 0.35)" },
-        { bg: "#2b0b18", c1: "rgba(251, 113, 133, 0.35)", c2: "rgba(244, 63, 94, 0.35)", c3: "rgba(217, 70, 239, 0.35)" },
-        { bg: "#062312", c1: "rgba(52, 211, 153, 0.35)", c2: "rgba(74, 222, 128, 0.35)", c3: "rgba(45, 212, 191, 0.35)" },
-        { bg: "#1f1604", c1: "rgba(250, 204, 21, 0.35)", c2: "rgba(251, 191, 36, 0.35)", c3: "rgba(251, 146, 60, 0.35)" },
-        { bg: "#120826", c1: "rgba(139, 92, 246, 0.35)", c2: "rgba(192, 132, 252, 0.35)", c3: "rgba(56, 189, 248, 0.35)" },
-        { bg: "#2a1506", c1: "rgba(251, 146, 60, 0.35)", c2: "rgba(248, 113, 113, 0.35)", c3: "rgba(250, 204, 21, 0.35)" },
-        { bg: "#051c24", c1: "rgba(34, 211, 238, 0.35)", c2: "rgba(45, 212, 191, 0.35)", c3: "rgba(99, 102, 241, 0.35)" },
-        { bg: "#26061b", c1: "rgba(236, 72, 153, 0.35)", c2: "rgba(244, 114, 182, 0.35)", c3: "rgba(168, 85, 247, 0.35)" },
-        { bg: "#0d2018", c1: "rgba(74, 222, 128, 0.35)", c2: "rgba(34, 211, 238, 0.35)", c3: "rgba(52, 211, 153, 0.35)" }
-    ];
-    
+           "radial-gradient(circle at 50% -10%, #60a5fa 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #34d399 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #f472b6 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #fbbf24 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #38bdf8 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #a78bfa 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #f87171 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #4ade80 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #818cf8 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #e879f9 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #2dd4bf 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #fb923c 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #acc8e5 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #facc15 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #c084fc 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #38e0b8 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #ff85a1 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #67e8f9 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #fbcfe8 0%, #060913 100%)",
+           "radial-gradient(circle at 50% -10%, #fde047 0%, #060913 100%)"
+        ];
+ 
         const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
-        document.body.style.setProperty('--dynamic-bg', randomBg);
-
+       document.body.style.setProperty('--dynamic-bg', randomBg);
+ 
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         let targetId = 'windowsApps';
-
+ 
         if (/android/i.test(ua)) {
             targetId = 'androidApps';
         } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
@@ -352,18 +346,18 @@
         } else if (/Win/i.test(navigator.platform)) {
             targetId = 'windowsApps';
         }
-
+ 
         const content = document.getElementById(targetId);
         const arrow = document.getElementById('arrow-' + targetId);
         const header = document.getElementById('header-' + targetId);
         
         if (content && header && arrow) {
-            content.style.display = 'block';
-            arrow.style.transform = 'rotate(180deg)';
-            header.classList.add('active-os');
+           content.style.display = 'block';
+           arrow.style.transform = 'rotate(180deg)';
+           header.classList.add('active-os');
         }
     };
 </script>
-
+ 
 </body>
 </html>
