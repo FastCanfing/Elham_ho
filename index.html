@@ -19,7 +19,6 @@
             transition: background-image 0.6s ease;
         }
         .wrapper { width: 100%; max-width: 420px; }
-        
         .brand-title {
             text-align: center;
             font-size: 16px;
@@ -29,7 +28,6 @@
             letter-spacing: 0.5px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-
         .card { 
             background: rgba(255, 255, 255, 0.03); 
             backdrop-filter: blur(20px);
@@ -40,118 +38,59 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
             margin-bottom: 14px; 
         }
-        .sub-time-card { 
-            font-size: 13px; 
-            color: #94a3b8; 
-            font-weight: 500;
+        .usage-section { font-size: 13px; color: #94a3b8; font-weight: 500; }
+        .usage-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; color: #f8fafc; }
+        .progress-bar-container { 
+            width: 100%; height: 10px; background: rgba(255, 255, 255, 0.06); 
+            border-radius: 6px; overflow: hidden; margin: 10px 0 14px 0; 
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .badge-time { 
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.1));
-            color: #c084fc;
-            padding: 4px 12px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 13px;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            display: inline-flex;
-            gap: 4px;
-            align-items: center;
-        }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); border-radius: 6px; transition: width 1s ease-in-out; }
+        .usage-details { display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; }
+        .usage-details span b { color: #f8fafc; }
         .sub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .sub-title { font-weight: 700; font-size: 14px; color: #f8fafc; display: flex; align-items: center; gap: 8px; }
         .btn-group { display: flex; gap: 8px; }
-        
         .action-btn { 
-            background: rgba(255, 255, 255, 0.06); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 8px 14px; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            font-size: 13px; 
-            color: #e2e8f0; 
-            font-weight: 600; 
-            display: flex; 
-            align-items: center; 
-            gap: 6px; 
+            background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 8px 14px; border-radius: 12px; cursor: pointer; font-size: 13px; 
+            color: #e2e8f0; font-weight: 600; display: flex; align-items: center; gap: 6px; 
         }
         .action-btn.primary { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #fff; border: none; }
-
         .link-box-input {
-            width: 100%;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 10px 14px;
-            color: #38bdf8;
-            font-size: 12px;
-            direction: ltr;
-            text-align: left;
-            outline: none;
+            width: 100%; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px; padding: 10px 14px; color: #38bdf8; font-size: 12px; direction: ltr; text-align: left; outline: none;
         }
-
         .qrcode-container { display: flex; justify-content: center; align-items: center; margin-top: 15px; display: none; }
         .qrcode-container img { border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-
         .os-section { margin-bottom: 6px; }
         .accordion-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            cursor: pointer; 
-            font-size: 14px; 
-            font-weight: 600; 
-            color: #cbd5e1; 
-            padding: 12px 14px; 
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            margin-bottom: 8px;
-            transition: all 0.2s ease;
+            display: flex; justify-content: space-between; align-items: center; cursor: pointer; 
+            font-size: 14px; font-weight: 600; color: #cbd5e1; padding: 12px 14px; 
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px; margin-bottom: 8px; transition: all 0.2s ease;
         }
-        .accordion-header.active-os { 
-            background: rgba(99, 102, 241, 0.1); 
-            border-color: rgba(99, 102, 241, 0.3);
-            color: #f8fafc;
-        }
+        .accordion-header.active-os { background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); color: #f8fafc; }
         .arrow-icon { font-size: 11px; color: #64748b; transition: transform 0.3s ease; }
-        
         .accordion-content { display: none; margin-top: 6px; margin-bottom: 10px; padding: 0 4px; }
         .app-item { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(15, 23, 42, 0.6); 
-            padding: 12px 16px; 
-            border-radius: 14px; 
-            margin-bottom: 8px; 
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.6); 
+            padding: 12px 16px; border-radius: 14px; margin-bottom: 8px; border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .app-info { display: flex; align-items: center; gap: 10px; }
         .app-name { font-size: 13px; font-weight: 700; color: #f8fafc; }
         .badge-suggest { background: rgba(56, 189, 248, 0.12); color: #38bdf8; font-size: 10px; padding: 4px 8px; border-radius: 8px; font-weight: 700; }
         .dl-btn { 
-            background: rgba(255, 255, 255, 0.06); 
-            color: #e2e8f0; 
-            padding: 7px 16px; 
-            border-radius: 10px; 
-            text-decoration: none; 
-            font-size: 12px; 
-            font-weight: 600; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06); color: #e2e8f0; padding: 7px 16px; border-radius: 10px; 
+            text-decoration: none; font-size: 12px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.05);
         }
-
+        .dl-btn.latest { background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2)); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8; }
         .support-card { display: flex; justify-content: space-between; align-items: center; }
         .support-title { font-weight: 600; font-size: 13px; color: #94a3b8; }
         .support-link { color: #38bdf8; font-weight: 700; font-size: 13px; text-decoration: none; direction: ltr; background: rgba(56, 189, 248, 0.08); padding: 7px 16px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.2); }
-
         .thank-you-box { 
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); 
-            border-radius: 20px; 
-            padding: 18px; 
-            text-align: center; 
-            color: #ffffff; 
-            font-size: 13px; 
-            font-weight: 600; 
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); border-radius: 20px; 
+            padding: 18px; text-align: center; color: #ffffff; font-size: 13px; font-weight: 600; 
             box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
         }
     </style>
@@ -159,27 +98,28 @@
 <body>
 
 <div class="wrapper">
-    <!-- ========================================== -->
-    <!-- اسم را اینجا وارد کنید (بین علامت‌های نقل‌قول زیر) -->
-    <!-- ========================================== -->
+    <!-- ✏️ [۱- نام اکانت/برند]: اسم خود را در خط زیر وارد کنید -->
     <div class="brand-title">Elham_ho</div>
 
-    <!-- بخش مدت زمان و حجم سرویس -->
-    <div class="card sub-time-card" style="display: flex; gap: 10px;">
-        <div style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
-            <span>مدت زمان</span>
-            <div class="badge-time">
-                <span>2</span>
-                <span>ماه</span>
-            </div>
+    <!-- بخش نمایش حجم مصرفی و باقی‌مانده (آپدیت خودکار) -->
+    <div class="card usage-section">
+        <div class="usage-header">
+            <span>وضعیت مصرف حجم</span>
+            <span id="usagePercent">در حال دریافت...</span>
         </div>
-        <div style="flex: 1; display: flex; justify-content: space-between; align-items: center; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 10px;">
-            <span>حجم سرویس</span>
-            <div class="badge-time" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.1)); color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
-                <span>10</span>
-                <span>گیگ</span>
-            </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
+        <div class="usage-details">
+            <span>مصرف‌شده: <b id="usedTraffic">-</b></span>
+            <span>کل حجم: <b id="totalTraffic">-</b></span>
+        </div>
+    </div>
+
+    <!-- ✏️ [۲- مدت زمان اشتراک]: مدت زمان دلخواه (مثل ۲ ماهه) را در خط زیر تغییر دهید -->
+    <div class="card" style="font-size: 13px; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <span>مدت زمان اشتراک:</span>
+        <b style="color: #f8fafc;">2 ماهه</b>
     </div>
 
     <!-- لینک اشتراک -->
@@ -195,9 +135,8 @@
         <div class="qrcode-container" id="qrcode"></div>
     </div>
 
-    <!-- بخش برنامه‌ها با تشخیص خودکار نوع دستگاه -->
+    <!-- بخش برنامه‌ها -->
     <div class="card">
-        <!-- iOS -->
         <div class="os-section">
             <div class="accordion-header" id="header-iosApps" onclick="toggleAccordion('iosApps')">
                 <span>🍏 iOS (آیفون)</span>
@@ -205,16 +144,12 @@
             </div>
             <div class="accordion-content" id="iosApps">
                 <div class="app-item">
-                    <div class="app-info">
-                        <span class="app-name">Streisand</span>
-                        <span class="badge-suggest">پیشنهادی</span>
-                    </div>
-                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn" target="_blank">دانلود</a>
+                    <div class="app-info"><span class="app-name">Streisand</span><span class="badge-suggest">پیشنهادی</span></div>
+                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
                 </div>
             </div>
         </div>
 
-        <!-- اندروید -->
         <div class="os-section">
             <div class="accordion-header" id="header-androidApps" onclick="toggleAccordion('androidApps')">
                 <span>🤖 اندروید</span>
@@ -222,13 +157,12 @@
             </div>
             <div class="accordion-content" id="androidApps">
                 <div class="app-item">
-                    <div class="app-info"><span class="app-name">v2rayNG</span></div>
-                    <a href="https://github.com/2dust/v2rayNG/releases" class="dl-btn" target="_blank">دانلود</a>
+                    <div class="app-info"><span class="app-name">v2rayNG</span><span class="badge-suggest">پیشنهادی</span></div>
+                    <a href="https://github.com/2dust/v2rayNG/releases/latest" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
                 </div>
             </div>
         </div>
 
-        <!-- ویندوز -->
         <div class="os-section">
             <div class="accordion-header" id="header-windowsApps" onclick="toggleAccordion('windowsApps')">
                 <span>💻 ویندوز</span>
@@ -236,14 +170,13 @@
             </div>
             <div class="accordion-content" id="windowsApps">
                 <div class="app-item">
-                    <div class="app-info"><span class="app-name">v2rayN</span></div>
-                    <a href="https://github.com/2dust/v2rayN/releases" class="dl-btn" target="_blank">دانلود</a>
+                    <div class="app-info"><span class="app-name">v2rayN</span><span class="badge-suggest">پیشنهادی</span></div>
+                    <a href="https://github.com/2dust/v2rayN/releases/latest" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- پشتیبانی -->
     <div class="card support-card">
         <span class="support-title">پشتیبانی تلگرام</span>
         <a href="https://t.me/Turbo_Canfing" target="_blank" class="support-link">@Turbo_Canfing</a>
@@ -255,12 +188,44 @@
 </div>
 
 <script>
-    // ==========================================
-    // لینک را اینجا کپی کنید (بین علامت‌های نقل‌قول زیر)
-    // ==========================================
+    // ✏️ [۳- لینک ساب‌سکریپشن]: لینک ساب مشتری را بین علامت‌های نقل قول (" ") در خط زیر جایگذاری کنید
     const subLink = "https://racocloud.com/sub/djMsMTA2MzEsMTc4NDMxMDgyNQ6aa23c3aa0";
-
+    
     document.getElementById('subLinkInput').value = subLink;
+
+    async function fetchTrafficUsage() {
+        try {
+            const response = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(subLink));
+            const userInfo = response.headers.get('subscription-userinfo');
+            if (userInfo) {
+                const parts = userInfo.split(';');
+                let upload = 0, download = 0, total = 0;
+                parts.forEach(part => {
+                    const [key, val] = part.trim().split('=');
+                    if (key === 'upload') upload = parseInt(val) || 0;
+                    if (key === 'download') download = parseInt(val) || 0;
+                    if (key === 'total') total = parseInt(val) || 0;
+                });
+                const used = upload + download;
+                const formatGB = (bytes) => (bytes / (1024 * 1024 * 1024)).toFixed(2) + ' گیگ';
+                document.getElementById('usedTraffic').innerText = formatGB(used);
+                document.getElementById('totalTraffic').innerText = total > 0 ? formatGB(total) : 'نامحدود';
+                if (total > 0) {
+                    let percent = Math.round((used / total) * 100);
+                    if (percent > 100) percent = 100;
+                    document.getElementById('progressBar').style.width = percent + '%';
+                    document.getElementById('usagePercent').innerText = percent + '% مصرف شده';
+                } else {
+                    document.getElementById('usagePercent').innerText = 'فعال';
+                }
+            } else {
+                document.getElementById('usagePercent').innerText = 'بدون محدودیت هدر';
+            }
+        } catch (e) {
+            document.getElementById('usagePercent').innerText = 'خطا در دریافت';
+        }
+    }
+    fetchTrafficUsage();
 
     let qrGenerated = false;
     function toggleQR() {
@@ -270,14 +235,7 @@
         } else {
             qrContainer.style.display = 'flex';
             if (!qrGenerated) {
-                new QRCode(qrContainer, {
-                    text: subLink,
-                    width: 150,
-                    height: 150,
-                    colorDark : "#000000",
-                    colorLight : "#ffffff",
-                    correctLevel : QRCode.CorrectLevel.M
-                });
+                new QRCode(qrContainer, { text: subLink, width: 150, height: 150, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.M });
                 qrGenerated = true;
             }
         }
@@ -287,7 +245,6 @@
         const inputElement = document.getElementById('subLinkInput');
         inputElement.select();
         inputElement.setSelectionRange(0, 99999);
-        
         try {
             document.execCommand('copy');
             const btn = document.getElementById('copyBtn');
@@ -305,7 +262,6 @@
     function toggleAccordion(id) {
         const content = document.getElementById(id);
         const arrow = document.getElementById('arrow-' + id);
-        const header = document.getElementById('header-' + id);
         if (content.style.display === 'block') {
             content.style.display = 'none';
             arrow.style.transform = 'rotate(0deg)';
@@ -316,42 +272,14 @@
     }
 
     window.onload = function() {
-        const bgList = [
-            "radial-gradient(circle at 50% -10%, #1e1b4b 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #064e3b 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #172554 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #581c87 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #831843 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #7c2d12 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #0f766e 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #312e81 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #881337 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #3b0764 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #14532d 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #1e3a8a 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #4a044e 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #134e4a 0%, #060913 100%)",
-            "radial-gradient(circle at 50% -10%, #431407 0%, #060913 100%)"
-        ];
-
-        const randomBg = bgList[Math.floor(Math.random() * bgList.length)];
-        document.body.style.setProperty('--dynamic-bg', randomBg);
-
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         let targetId = 'windowsApps';
-
-        if (/android/i.test(ua)) {
-            targetId = 'androidApps';
-        } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-            targetId = 'iosApps';
-        } else if (/Win/i.test(navigator.platform)) {
-            targetId = 'windowsApps';
-        }
-
+        if (/android/i.test(ua)) targetId = 'androidApps';
+        else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) targetId = 'iosApps';
+        
         const content = document.getElementById(targetId);
         const arrow = document.getElementById('arrow-' + targetId);
         const header = document.getElementById('header-' + targetId);
-        
         if (content && header && arrow) {
             content.style.display = 'block';
             arrow.style.transform = 'rotate(180deg)';
