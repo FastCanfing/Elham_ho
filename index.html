@@ -9,16 +9,13 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
         body { 
             background: #0b0f19;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 60%);
             color: #f8fafc; 
             padding: 30px 16px; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
+            transition: background 0.5s ease;
         }
         .wrapper { width: 100%; max-width: 420px; }
         .brand-title {
@@ -41,15 +38,12 @@
             margin-bottom: 14px; 
         }
         .usage-section { font-size: 13px; color: #94a3b8; font-weight: 500; }
-        .usage-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; color: #f8fafc; }
         .progress-bar-container { 
             width: 100%; height: 10px; background: rgba(255, 255, 255, 0.06); 
             border-radius: 6px; overflow: hidden; margin: 10px 0 14px 0; 
             border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%); border-radius: 6px; transition: width 1s ease-in-out; }
-        .usage-details { display: flex; justify-content: space-between; font-size: 12px; color: #94a3b8; }
-        .usage-details span b { color: #f8fafc; }
         .sub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .sub-title { font-weight: 700; font-size: 14px; color: #f8fafc; display: flex; align-items: center; gap: 8px; }
         .btn-group { display: flex; gap: 8px; }
@@ -103,25 +97,14 @@
     <!-- ✏️ [۱- نام اکانت/برند]: اسم خود را در خط زیر وارد کنید -->
     <div class="brand-title">Elham_ho</div>
 
-    <!-- بخش نمایش حجم مصرفی و باقی‌مانده (آپدیت خودکار) -->
-    <div class="card usage-section">
-        <div class="usage-header">
-            <span>وضعیت مصرف حجم</span>
-            <span id="usagePercent">در حال دریافت...</span>
-        </div>
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <div class="usage-details">
-            <span>مصرف‌شده: <b id="usedTraffic">-</b></span>
-            <span>کل حجم: <b id="totalTraffic">-</b></span>
-        </div>
-    </div>
-
-    <!-- ✏️ [۲- مدت زمان اشتراک]: مدت زمان دلخواه (مثل ۲ ماهه) را در خط زیر تغییر دهید -->
-    <div class="card" style="font-size: 13px; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <span>مدت زمان اشتراک:</span>
-        <b style="color: #f8fafc;">2 ماهه</b>
+    <!-- مدت زمان و حجم سرویس -->
+    <div class="card usage-section" style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: #94a3b8;">مدت زمان</span>
+        <!-- ✏️ [2- مدت زمان اشتراک]: مقدار دلخواه (مثل ۲ ماه) را در خط زیر تغییر دهید -->
+        <b style="background: linear-gradient(135deg, #6366f1, #a855f7); color: #fff; padding: 6px 14px; border-radius: 12px; font-size: 12px;">۲ ماه</b>
+        <span style="color: #94a3b8;">حجم سرویس</span>
+        <!-- ✏️ [10- حجم سرویس]: مقدار حجم (مثل ۱۰ گیگ) را در خط زیر تغییر دهید -->
+        <b style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 6px 14px; border-radius: 12px; font-size: 12px; border: 1px solid rgba(56, 189, 248, 0.3);">۱۰ گیگ</b>
     </div>
 
     <!-- لینک اشتراک -->
@@ -147,7 +130,7 @@
             <div class="accordion-content" id="iosApps">
                 <div class="app-item">
                     <div class="app-info"><span class="app-name">Streisand</span><span class="badge-suggest">پیشنهادی</span></div>
-                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
+                    <a href="https://apps.apple.com/us/app/streisand/id6443341737" class="dl-btn latest" target="_blank">دانلود</a>
                 </div>
             </div>
         </div>
@@ -160,7 +143,7 @@
             <div class="accordion-content" id="androidApps">
                 <div class="app-item">
                     <div class="app-info"><span class="app-name">v2rayNG</span><span class="badge-suggest">پیشنهادی</span></div>
-                    <a href="https://github.com/2dust/v2rayNG/releases/latest" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
+                    <a href="https://github.com/2dust/v2rayNG/releases/latest" class="dl-btn latest" target="_blank">دانلود</a>
                 </div>
             </div>
         </div>
@@ -173,7 +156,7 @@
             <div class="accordion-content" id="windowsApps">
                 <div class="app-item">
                     <div class="app-info"><span class="app-name">v2rayN</span><span class="badge-suggest">پیشنهادی</span></div>
-                    <a href="https://github.com/2dust/v2rayN/releases/latest" class="dl-btn latest" target="_blank">دانلود آخرین نسخه</a>
+                    <a href="https://github.com/2dust/v2rayN/releases/latest" class="dl-btn latest" target="_blank">دانلود</a>
                 </div>
             </div>
         </div>
@@ -190,57 +173,42 @@
 </div>
 
 <script>
-    // ✏️ [۳- لینک ساب‌سکریپشن]: لینک ساب مشتری را بین علامت‌های نقل قول (" ") در خط زیر جایگذاری کنید
+    // ۲۰ پالت رنگی مختلف با رنگ‌های روشن، زنده و جذاب
+    const colorPalettes = [
+        { bg: "#0d1b2a", c1: "rgba(56, 189, 248, 0.35)", c2: "rgba(129, 140, 248, 0.35)", c3: "rgba(52, 211, 153, 0.3)" }, // آبی و سبز روشن
+        { bg: "#1f1d2b", c1: "rgba(244, 63, 94, 0.35)", c2: "rgba(236, 72, 153, 0.35)", c3: "rgba(168, 85, 247, 0.35)" }, // صورتی و بنفش روشن
+        { bg: "#111827", c1: "rgba(251, 191, 36, 0.35)", c2: "rgba(249, 115, 22, 0.35)", c3: "rgba(244, 63, 94, 0.3)" }, // کهربایی و نارنجی روشن
+        { bg: "#06202a", c1: "rgba(45, 212, 191, 0.35)", c2: "rgba(56, 189, 248, 0.35)", c3: "rgba(147, 197, 253, 0.35)" }, // فیروزه‌ای و آبی آسمانی
+        { bg: "#18122b", c1: "rgba(192, 132, 252, 0.35)", c2: "rgba(244, 114, 182, 0.35)", c3: "rgba(129, 140, 248, 0.35)" }, // ارکیده‌ای و صورتی روشن
+        { bg: "#052e16", c1: "rgba(74, 222, 128, 0.35)", c2: "rgba(52, 211, 153, 0.35)", c3: "rgba(250, 204, 21, 0.35)" }, // سبز یشمی و لیمویی روشن
+        { bg: "#2a0808", c1: "rgba(248, 113, 113, 0.35)", c2: "rgba(251, 146, 60, 0.35)", c3: "rgba(250, 204, 21, 0.35)" }, // قرمز و سرخابی روشن
+        { bg: "#170f26", c1: "rgba(168, 85, 247, 0.35)", c2: "rgba(99, 102, 241, 0.35)", c3: "rgba(236, 72, 153, 0.35)" }, // بنفش و نیلی روشن
+        { bg: "#042f2e", c1: "rgba(45, 212, 191, 0.35)", c2: "rgba(74, 222, 128, 0.35)", c3: "rgba(56, 189, 248, 0.35)" }, // سبز آبی روشن و نعنایی
+        { bg: "#291b07", c1: "rgba(251, 191, 36, 0.35)", c2: "rgba(251, 146, 60, 0.35)", c3: "rgba(234, 179, 8, 0.35)" }, // طلایی و خردلی روشن
+        { bg: "#20062a", c1: "rgba(217, 70, 239, 0.35)", c2: "rgba(168, 85, 247, 0.35)", c3: "rgba(244, 114, 182, 0.35)" }, // سرخابی و بنفش نئونی
+        { bg: "#041c2c", c1: "rgba(56, 189, 248, 0.4)", c2: "rgba(34, 211, 238, 0.35)", c3: "rgba(129, 140, 248, 0.35)" }, // آبی الکتریک و سایان
+        { bg: "#2b0b18", c1: "rgba(251, 113, 133, 0.35)", c2: "rgba(244, 63, 94, 0.35)", c3: "rgba(217, 70, 239, 0.35)" }, // رزی و صورتی روشن
+        { bg: "#062312", c1: "rgba(52, 211, 153, 0.35)", c2: "rgba(74, 222, 128, 0.35)", c3: "rgba(45, 212, 191, 0.35)" }, // سبز جنگلی روشن
+        { bg: "#1f1604", c1: "rgba(250, 204, 21, 0.35)", c2: "rgba(251, 191, 36, 0.35)", c3: "rgba(251, 146, 60, 0.35)" }, // زرد و نارنجی آفتابی
+        { bg: "#120826", c1: "rgba(139, 92, 246, 0.35)", c2: "rgba(192, 132, 252, 0.35)", c3: "rgba(56, 189, 248, 0.35)" }, // بنفش سلطنتی روشن
+        { bg: "#2a1506", c1: "rgba(251, 146, 60, 0.35)", c2: "rgba(248, 113, 113, 0.35)", c3: "rgba(250, 204, 21, 0.35)" }, // هلویی و مرجانی روشن
+        { bg: "#051c24", c1: "rgba(34, 211, 238, 0.35)", c2: "rgba(45, 212, 191, 0.35)", c3: "rgba(99, 102, 241, 0.35)" }, // آبی اقیانوسی روشن
+        { bg: "#26061b", c1: "rgba(236, 72, 153, 0.35)", c2: "rgba(244, 114, 182, 0.35)", c3: "rgba(168, 85, 247, 0.35)" }, // سرخابی پاستلی و روشن
+        { bg: "#0d2018", c1: "rgba(74, 222, 128, 0.35)", c2: "rgba(34, 211, 238, 0.35)", c3: "rgba(52, 211, 153, 0.35)" } // سبز چمنی و آبی روشن
+    ];
+
+    const selectedPalette = colorPalettes[Math.floor(Math.random() * colorPalettes.length)];
+    document.body.style.backgroundColor = selectedPalette.bg;
+    document.body.style.backgroundImage = `
+        radial-gradient(circle at 15% 15%, ${selectedPalette.c1} 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, ${selectedPalette.c2} 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, ${selectedPalette.c3} 0%, transparent 65%)
+    `;
+
+    // ✏️ [۴- لینک ساب‌سکریپشن]: لینک ساب مشتری را بین علامت‌های نقل قول (" ") در خط زیر جایگذاری کنید
     const subLink = "https://racocloud.com/sub/djMsMTA2MzEsMTc4NDMxMDgyNQ6aa23c3aa0";
     
     document.getElementById('subLinkInput').value = subLink;
-
-    async function fetchTrafficUsage() {
-        const proxies = [
-            'https://api.allorigins.win/raw?url=',
-            'https://api.codetabs.com/v1/proxy?quest='
-        ];
-
-        let userInfo = null;
-        for (let proxy of proxies) {
-            try {
-                const response = await fetch(proxy + encodeURIComponent(subLink));
-                if (response.ok) {
-                    userInfo = response.headers.get('subscription-userinfo');
-                    if (userInfo) break;
-                }
-            } catch (err) {
-                continue;
-            }
-        }
-
-        if (userInfo) {
-            const parts = userInfo.split(';');
-            let upload = 0, download = 0, total = 0;
-            parts.forEach(part => {
-                const [key, val] = part.trim().split('=');
-                if (key === 'upload') upload = parseInt(val) || 0;
-                if (key === 'download') download = parseInt(val) || 0;
-                if (key === 'total') total = parseInt(val) || 0;
-            });
-            const used = upload + download;
-            const formatGB = (bytes) => (bytes / (1024 * 1024 * 1024)).toFixed(2) + ' گیگ';
-            document.getElementById('usedTraffic').innerText = formatGB(used);
-            document.getElementById('totalTraffic').innerText = total > 0 ? formatGB(total) : 'نامحدود';
-            if (total > 0) {
-                let percent = Math.round((used / total) * 100);
-                if (percent > 100) percent = 100;
-                document.getElementById('progressBar').style.width = percent + '%';
-                document.getElementById('usagePercent').innerText = percent + '% مصرف شده';
-            } else {
-                document.getElementById('usagePercent').innerText = 'فعال';
-            }
-        } else {
-            document.getElementById('usagePercent').innerText = 'اتصال برقرار شد (بدون هدر حجم)';
-            document.getElementById('totalTraffic').innerText = 'نامحدود';
-        }
-    }
-    fetchTrafficUsage();
 
     let qrGenerated = false;
     function toggleQR() {
